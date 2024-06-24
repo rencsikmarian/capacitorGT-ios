@@ -1,2 +1,0 @@
-Target dependency graph (1 target)
-Target 'Cordova' in project 'CapacitorCordova' (no dependencies)
