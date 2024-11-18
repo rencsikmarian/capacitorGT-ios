@@ -111,7 +111,9 @@ import Cordova
         webViewConfiguration.suppressesIncrementalRendering = false
         webViewConfiguration.allowsAirPlayForMediaPlayback = true
         webViewConfiguration.mediaTypesRequiringUserActionForPlayback = []
-        webViewConfiguration.limitsNavigationsToAppBoundDomains = instanceConfiguration.limitsNavigationsToAppBoundDomains
+        if #available(iOS 14.0, *) {
+            webViewConfiguration.limitsNavigationsToAppBoundDomains = instanceConfiguration.limitsNavigationsToAppBoundDomains
+        }
         if let appendUserAgent = instanceConfiguration.appendedUserAgentString {
             if let appName = webViewConfiguration.applicationNameForUserAgent {
                 webViewConfiguration.applicationNameForUserAgent = "\(appName)  \(appendUserAgent)"
@@ -130,7 +132,7 @@ import Cordova
         }
         return webViewConfiguration
     }
-
+    
     /**
     Allows the NAI_Plugin to customize the WKWebViewConfiguration
     - Parameter configuration: the configuration for WKWebView.
